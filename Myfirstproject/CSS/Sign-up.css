@@ -1,0 +1,55 @@
+body {
+    font-family: Arial, sans-serif;
+    background-image: url("../images/Chore.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    
+    
+    
+  }
+
+  form {
+    width: 500px;
+    margin: 50px auto;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  select,
+  button[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #0f0f0f;
+    background-color: rgb(217, 225, 226);
+
+  }
+
+  input[type="submit"] {
+    background-color: #f853a6;
+    color: white;
+    border: none;
+  }
+
+  input[type="submit"]:hover {
+    background-color: #3e8e41;
+  }
+
+  label {
+    display: block;
+    margin-bottom: 5px;
+  }
+
+  p {
+    margin: 10px 0;
+  }
+
+  a {
+    text-decoration: none;
+    color: rgb(223, 22, 105);
+  }
+
+  *{
+    font-weight: bold;
+  }

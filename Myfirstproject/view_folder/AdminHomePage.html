@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel ="stylesheet" href = "../CSS/AdminHomePage.css"
+
+
+
+    <title>AdminHomePage</title>
+    
+</head>
+
+<body>
+    <div class="content">
+
+        <div id="dashboard">
+            <h2>Dashboard</h2>
+            <h3>Chore Statistics</h3>
+            <div class="dash-item">
+                <div class="chore-category all-chores" onclick="redirectToChoreManagement()">
+                    <i class="fas fa-database"></i>
+                    <span class="all-chores">All chores</span>
+                    <ul>
+                        10
+                    </ul>
+                </div>
+                <div class="chore-category completed" onclick="redirectToChoreManagement()">
+                    <i class="fas fa-check-circle"></i>
+                    <span class="completed">Completed</span>
+                    <ul>
+                        10
+                    </ul>
+                </div>
+                <div class="chore-category in-progress" onclick="redirectToChoreManagement()">
+                    <i class="fas fa-exclamation-circle"></i>
+                    <span class="in-progress">In Progress</span>
+                    <ul> 20</ul>
+                </div>
+                <div class="chore-category incomplete" onclick="redirectToChoreManagement()">
+                    <i class="fas fa-times-circle"></i>
+                    <span class="incomplete">Incomplete</span>
+                    <ul>5</ul>
+                </div>
+            </div>
+        </div>
+
+        <div id="completed-chores" style="display: none;">
+            <h3>Recently Assigned Chores</h3>
+            <table class="recent-chore-table">
+                <tr>
+                    <th style="width: 25%;">Chore Name</th>
+                    <th style="width: 20%;">Person</th>
+                    <th style="width: 20%;">Date Assigned</th>
+                    <th style="width: 20%;">Date Completed</th>
+                    <th style="width: 15%;">Action</th>
+                </tr>
+                <tr>
+                    <td>Laundry</td>
+                    <td><i class="fas fa-user icon"></i>John</td>
+                    <td><i class="far fa-calendar-alt icon"></i>12/12/2021</td>
+                    <td><i class="far fa-calendar-alt icon"></i>12/14/2021</td>
+                    <td class="check-details">Check Details</td>
+                </tr>
+                <tr>
+                    <td>Dishes</td>
+                    <td><i class="fas fa-user icon"></i>Jane</td>
+                    <td><i class="far fa-calendar-alt icon"></i>12/13/2021</td>
+                    <td>In Progress</td>
+                    <td class="check-details">Check Details</td>
+                </tr>
+            </table>
+        </div>
+
+    </div>
+
+    <div id="sidebar">
+        <h2>Welcome Administrator</h2>
+        <a href="#" id="home-link"><i class="fas fa-home icon"></i>Home</a>
+        <a href="../admin_folder/chore_management.html">Chore Management</a>
+        <a href="../admin_folder/assign.html" ><i class="fas fa-tasks"></i>Chore Assignments</a>
+    </div>
+
+    <div id="user-name">Jackline Mpaye</div>
+    <div id="logout-link"><i class="fas fa-sign-out-alt icon"></i><a href="../Login/Log-in_view.php">Logout</a></div>
+
+    <script>
+        const homeLink = document.getElementById('home-link');
+        const dashboard = document.getElementById('dashboard');
+        const completedChores = document.getElementById('completed-chores');
+
+        homeLink.addEventListener('click', function (event) {
+            event.preventDefault();
+
+            if (dashboard.style.display === 'none') {
+                dashboard.style.display = 'block';
+                completedChores.style.display = 'block';
+            } else {
+                dashboard.style.display = 'none';
+                completedChores.style.display = 'none';
+            }
+        });
+
+        // Function to handle click on statistics boxes
+        function redirectToChoreManagement() {
+            // Redirect to chore management page
+            window.location.href = '../admin_folder/chore_management.html';
+        };
+
+    </script>
+</body>
+
+</html>
+
+
+</body>
+
+</html>

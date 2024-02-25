@@ -1,0 +1,220 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #a0d8ee;
+    position: relative;
+    min-height: 100vh;
+    line-height: 1.5;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+#dashboard {
+    margin-left: 200px;
+    margin-top: 10px;
+    display: none;
+}
+
+
+
+.chore-category {
+    margin-bottom: 20px;
+}
+
+
+#sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 200px;
+    height: 100%;
+    background-color: #0f0f0f;
+    padding: 20px 0;
+}
+
+#sidebar h2 {
+    color: #a7176b;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#sidebar a {
+    display: block;
+    padding: 10px;
+    color: #0a85b6;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+#sidebar a:hover {
+    background-color: #555;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th,
+td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+.content {
+    padding: 20px;
+    line-height: 3;
+    margin-top: 10px;
+    max-width: 100%;
+}
+
+.content h2 {
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.content p {
+    margin-bottom: 20px;
+}
+
+.chore-category {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.chore-category-item {
+    width: 30%;
+    padding: 15px;
+    margin-bottom: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.chore-category-item i {
+    margin-right: 10px;
+}
+
+.person-block {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.person-block i {
+    margin-right: 10px;
+}
+
+.person-name {
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.recent-chore-block {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.recent-chore-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.recent-chore-table th,
+.recent-chore-table td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+}
+
+.icon {
+    margin-right: 10px;
+}
+
+/* Update to only color the text of chore statistics blocks */
+.chore-category .all-chores,
+.chore-category .completed,
+.chore-category .in-progress,
+.chore-category .incomplete {
+    color: white;
+}
+
+/* Hide the recently assigned chores section initially */
+#completed-chores {
+    display: none;
+}
+
+.check-details {
+    color: rgb(241, 73, 219);
+    cursor: pointer;
+}
+
+#user-name {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    color: #333;
+}
+
+#logout-link {
+    position: absolute;
+    bottom: 10px;
+    left: 20px;
+    color: #1642b9;
+}
+
+/* Color for chore category blocks */
+.in-progress {
+    background-color: #ffc107;
+    /* Yellow */
+}
+
+.completed {
+    background-color: #28a745;
+    /* Green */
+}
+
+.incomplete {
+    background-color: #dc3545;
+    /* Red */
+}
+
+.all-chores {
+    background-color: #5c10a3;
+}
+
+.dash-item {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+
+
+
+/* Font Awesome CDN */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css');

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Chore</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #8ce7b5; ;
+        }
+
+        h1, h2 {
+            text-align: center;
+        }
+
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"],
+        textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+
+        button[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        td.actions button {
+            margin-right: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Add Chore</h1>
+
+    <!-- Chore Creation Form -->
+    <form action="#" method="POST" name="choreForm" id="choreForm">
+        <label for="choreName">Chore Name:</label>
+        <input type="text" name="choreName" id="choreName" placeholder="Enter chore name" required><br>
+
+        <label for="choreDescription">Chore Description:</label>
+        <textarea name="choreDescription" id="choreDescription" placeholder="Enter chore description" required></textarea><br>
+
+        <button type="submit" name="submitBtn" id="submitBtn">Add Chore</button>
+    </form>
+
+    <hr>
+
+    <!-- Table to display list of chores -->
+    <h2>List of Chores</h2>
+    <table id="choreTable">
+        <thead>
+            <tr>
+                <th>Chore ID</th>
+                <th>Chore Name</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Chore list items will be dynamically added here -->
+        </tbody>
+    </table>
+
+    <script>
+        // JavaScript code for handling chore creation and displaying existing chores
+
+        // Function to handle form submission
+        document.getElementById('choreForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent form submission
+
+            // Get form data
+            var choreName = document.getElementById('choreName').value;
+            var choreDescription = document.getElementById('choreDescription').value;
+
+            // Create a new chore entry (you can use AJAX to submit data to the server)
+            var newChore = {
+                id: Math.floor(Math.random() * 1000), // Generate a random ID (replace with server-generated ID)
+                name: choreName,
+                description: choreDescription
+            };
+
+            // Add the new chore entry to the table
+            addChoreToList(newChore);
+
+            // Clear form fields
+            document.getElementById('choreName').value = '';
+            document.getElementById('choreDescription').value = '';
+        });
+
+        // Function to add a chore entry to the table
+        function addChoreToList(chore) {
+            var tableBody = document.querySelector('#choreTable tbody');
+            var newRow = tableBody.insertRow();
+
+            // Insert cells into the new row
+            var idCell = newRow.insertCell(0);
+            var nameCell = newRow.insertCell(1);
+            var actionsCell = newRow.insertCell(2);
+
+            // Fill cells with chore data
+            idCell.textContent = chore.id;
+            nameCell.textContent = chore.name;
+
+            // Add edit and delete buttons to the actions cell
+            var editButton = document.createElement('button');
+            editButton.textContent = 'Edit';
+            editButton.addEventListener('click', function() {
+                // Handle edit operation (e.g., show edit form)
+                console.log('Edit chore: ', chore);
+            });
+            actionsCell.appendChild(editButton);
+
+            var deleteButton = document.createElement('button');
+            deleteButton.textContent = 'Delete';
+            deleteButton.addEventListener('click', function() {
+                // Handle delete operation (e.g., remove chore from list)
+                tableBody.removeChild(newRow);
+            });
+            actionsCell.appendChild(deleteButton);
+        }
+
+        // Function to fetch existing chores from the server and display them in the table
+        // This is just a placeholder function; you should replace it with actual AJAX code
+        function fetchChoresFromServer() {
+            // Dummy chore data (replace with actual fetch request)
+            var chores = [
+                { id: 1, name: 'Clean the house', description: 'Clean all rooms and surfaces' },
+                { id: 2, name: 'Do the dishes', description: 'Wash and dry dishes after meals' },
+                { id: 3, name: 'Take out the trash', description: 'Empty all trash bins and take out to the curb' }
+            ];
+
+            // Add each chore to the table
+            chores.forEach(function(chore) {
+                addChoreToList(chore);
+            });
+
+        }
+
+        // Call fetchChoresFromServer() to populate the table with existing chores
+        fetchChoresFromServer();
+    </script>
+    <button onclick="exitAssignment()">Exit</button>
+    <script>
+        function exitAssignment() {
+             window.location.href = "../view_folder/AdminHomePage.html"; 
+        }
+    </script>
+</body>
+
+</html>

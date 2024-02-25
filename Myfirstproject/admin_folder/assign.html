@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel ="stylesheet" type ="text/css" href ="../CSS/assign.css">
+    <title>Assign Chore</title>
+
+</head>
+<body>
+    <h1>Assign Chore</h1>
+    <form id="assign-chore-form">
+        <div>
+            <label for="assign-person">Assign Person:</label>
+            <select id="assign-person" name="assign-person">
+                <option value="person1">Father</option>
+                <option value="person2">Mother</option>
+                <option value="person3">Daughter</option>
+                <!-- Add more options as needed -->
+            </select>
+        </div>
+        <div>
+            <label for="assign-chore">Assign Chore:</label>
+            <select id="assign-chore" name="assign-chore">
+                <option value="chore1">Chore 1</option>
+                <option value="chore2">Chore 2</option>
+                <option value="chore3">Chore 3</option>
+                <!-- Add more options as needed -->
+            </select>
+        </div>
+        <div>
+            <label for="due-date">Due Date:</label>
+            <input type="date" id="due-date" name="due-date" required>
+        </div>
+        <button type="submit" name="assign-chore-btn" id="assign-chore-btn">Assign Chore</button>
+        <button onclick="exitAssignment()">Exit</button>
+    </form>
+    <script>
+        document.getElementById('assign-button-btn').addEventListener('click', function() {
+            // Get form data
+            const assignPerson = document.getElementById('assign-person').value;
+            const assignChore = document.getElementById('assign-chore').value;
+            const dueDate = document.getElementById('due-date').value;
+    
+            // Create a new row for the recently assigned chore
+            const newRow = document.createElement('tr');
+            newRow.innerHTML = `
+                <td>${assignChore}</td>
+                <td>${assignPerson}</td>
+                <td>${dueDate}</td>
+                <td>In Progress</td>
+                <td class="check-details">Check Details</td>
+            `;
+    
+            // Append the new row to the recently assigned chores table
+            const recentChoresTable = document.getElementById('recent-chore-table');
+            recentChoresTable.appendChild(newRow);
+    
+            // Optionally, you can reset the form fields after assigning the chore
+            document.getElementById('assign-form').reset();
+        });
+    </script>
+    
+    
+
+    
+
+    <script>
+        function exitAssignment() {
+            window.location.href = "../view_folder/AdminHomePage.html"; 
+        }
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+        document.getElementById('assign-chore-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            // Retrieve form data
+            const formData = new FormData(this);
+            const assignPerson = formData.get('assign-person');
+            const assignChore = formData.get('assign-chore');
+            const dueDate = formData.get('due-date');
+
+            // Perform the chore assignment (for demonstration, just logging)
+            console.log('Assigning chore to:', assignPerson);
+            console.log('Chore to be assigned:', assignChore);
+            console.log('Due date:', dueDate);
+
+            
+        });
+    });
+    </script>
+</body>
+</html>
